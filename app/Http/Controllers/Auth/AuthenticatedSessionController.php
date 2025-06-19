@@ -33,7 +33,11 @@ class AuthenticatedSessionController extends Controller
        {
         return redirect('admin/dashboard');
 
-       }
+       }else if ( $request->user()->usertype === 'farmer') {
+    return redirect('farmer/dashboard');
+}
+
+    
 
         return redirect()->intended(RouteServiceProvider::HOME);
     }

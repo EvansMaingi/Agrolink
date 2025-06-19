@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Product Listing</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background-color: #f2f7f1;
+      padding: 40px;
+    }
+
+    .table-container {
+      max-width: 1100px;
+      margin: auto;
+      background-color: #ffffff;
+      border-radius: 10px;
+      box-shadow: 0 4px 15px rgba(0, 100, 0, 0.1);
+      padding: 20px;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+    }
+
+    th, td {
+      padding: 14px 18px;
+      border-bottom: 1px solid #cde0c9;
+      text-align: left;
+      vertical-align: middle;
+    }
+
+    th {
+      background-color: #d4edda;
+      color: #155724;
+    }
+
+    tr:hover {
+      background-color: #eef7ec;
+    }
+
+    tr:last-child td {
+      border-bottom: none;
+    }
+
+    img {
+      width: 100px;
+      border-radius: 5px;
+      object-fit: cover;
+    }
+
+    .pagination-wrapper {
+      text-align: center;
+      margin-top: 30px;
+    }
+
+    .pagination {
+      display: inline-flex;
+      list-style: none;
+      padding: 0;
+      border-radius: 5px;
+    }
+
+    .pagination li {
+      margin: 0 4px;
+    }
+
+    .pagination li a,
+    .pagination li span {
+      display: block;
+      padding: 8px 14px;
+      background-color: #28a745;
+      color: #fff;
+      border-radius: 5px;
+      text-decoration: none;
+      transition: background-color 0.3s ease;
+    }
+
+    .pagination li.active span,
+    .pagination li a:hover {
+      background-color: #218838;
+    }
+
+    .pagination li.disabled span {
+      background-color: #ccc;
+      color: #666;
+      cursor: not-allowed;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="table-container">
+    <table class="table table-bordered">
+      <thead>
+        <tr>
+          <th>Product Title</th>
+          <th>Description</th>
+          <th>Image</th>
+          <th>Title Deed</th>
+          <th>Price</th>
+          <th>Category</th>
+          <th>Contacts</th>
+        </tr>
+      </thead>
+      <tbody>
+        @foreach($product as $products)
+        <tr>
+          <td>{{ $products->title }}</td>
+          <td>{{ $products->description }}</td>
+          <td><img src="{{ asset('images/' . $products->image) }}"></td>
+          <td><img src="{{ asset('title_deeds/' . $products->title_deed) }}"></td>
+          <td>{{ $products->price }}</td>
+          <td>{{ $products->category }}</td>
+          <td>{{ $products->contacts }}</td>
+        </tr>
+        @endforeach
+      </tbody>
+    </table>
+
+    <div class="pagination-wrapper">
+      {{ $product->onEachSide(1)->links() }}
+    </div>
+  </div>
+
+</body>
+</html>

@@ -3,6 +3,7 @@
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\FarmerController;
 
 /*
 |--------------------------------------------------------------------------
@@ -30,4 +31,21 @@ Route::middleware('auth')->group(function () {
 require __DIR__.'/auth.php';
 
 
-Route::get('admin/dashboard',[HomeController::class,'index']);
+Route::get('admin/dashboard',[HomeController::class,'index']);Route::get('farmer/dashboard', [FarmerController::class, 'index']);
+Route::get('farmer/dashboard', [FarmerController::class, 'index']);
+Route::get('view_category', [FarmerController::class, 'view_category']);
+Route::post('add_category', [FarmerController::class, 'add_category']);
+
+Route::get('delete_category/{id}',[FarmerController::class,'delete_category']);
+Route::get('edit_category/{id}',[FarmerController::class,'edit_category']);
+
+Route::post('update_category/{id}', [FarmerController::class, 'update_category']);
+
+Route::get('add_product',[FarmerController::class,'add_product']);
+
+Route::post('upload_product',[FarmerController::class,'upload_product']);
+
+Route::get('view_product',[FarmerController::class,'view_product']);
+
+
+
