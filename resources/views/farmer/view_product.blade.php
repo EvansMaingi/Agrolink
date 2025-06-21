@@ -4,6 +4,8 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Product Listing</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+
   <style>
     body {
       font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
@@ -103,6 +105,9 @@
           <th>Price</th>
           <th>Category</th>
           <th>Contacts</th>
+           <th>Edit</th>
+          <th>Delete</th>
+          
         </tr>
       </thead>
       <tbody>
@@ -115,6 +120,14 @@
           <td>{{ $products->price }}</td>
           <td>{{ $products->category }}</td>
           <td>{{ $products->contacts }}</td>
+
+          <td>
+           <a class="btn btn-primary" href="{{ url('update_product', $products->id) }}">Edit</a>
+
+          </td>
+          <td>
+            <a class="btn btn-danger" onclick="confirmation(event)" href="{{ url('delete_product',$products->id)}}">Delete</a>
+          </td>
         </tr>
         @endforeach
       </tbody>
@@ -124,6 +137,28 @@
       {{ $product->onEachSide(1)->links() }}
     </div>
   </div>
+
+  <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+
+<script>
+  function confirmation(event) {
+    event.preventDefault(); // Prevent the default link action
+
+    var urlToRedirect = event.currentTarget.getAttribute("href");
+
+    swal({
+      title: "Are you sure?",
+      text: "Once deleted, you will not be able to recover this item!",
+      icon: "warning",
+      buttons: true,
+      dangerMode: true,
+    }).then((willDelete) => {
+      if (willDelete) {
+        window.location.href = urlToRedirect;
+      }
+    });
+  }
+</script>
 
 </body>
 </html>

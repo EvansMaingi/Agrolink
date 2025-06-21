@@ -109,4 +109,74 @@ class FarmerController extends Controller
        return view('farmer.view_product', compact('product')); // Make sure this view exists: resources/views/farmer/view_product.blade.php
     }
 
+
+    public function delete_product($id)
+    {
+        $product = Product::find($id);
+
+        $image_path = public_path('images/' . $product->image);
+        
+
+        if (file_exists($image_path)) {
+            unlink($image_path); 
+            
+              
+           
+        }
+
+
+        $title_deed_path = public_path('title_deeds/' . $product->title_deed);
+        if (file_exists($title_deed_path)) {
+            unlink($title_deed_path); // Delete the title deed file
+        }
+
+
+        if ($product) {
+            $product->delete();
+            toastr()->timeout (5000)->closeButton()->addSuccess('Product deleted successfully!'); // Using Toastr for success message, ensure you have Toastr set up in your project
+        } else {
+            toastr()->timeout (5000)->closeButton()->addError('Product not found!'); // Using Toastr for error message
+        }
+
+        return redirect()->back(); // Redirect back with a success message
+    }
+
+    public function update_product($id)
+    {
+        $product = Product::find($id);
+        $category = Category::all();
+        return view('farmer.update_page', compact('product', 'category')); // Make sure this view exists: resources/views/farmer/update_product.blade.php
+    }
+
+
+    public function edit_product(Request $request, $id)
+    {
+        $product = Product::find($id);
+        $product->title = $request->title;
+        $product->description = $request->description;
+        $product->price = $request->price;
+        $product->category = $request->category;
+        $product->contacts = $request->contacts;
+
+        if ($request->hasFile('image')) {
+            $file = $request->file('image');
+            $filename = time() . '.' . $file->getClientOriginalExtension();
+            $file->move(public_path('images'), $filename);
+            $product->image = $filename; // Store the path to the image
+        }
+
+        if ($request->hasFile('title_deed')) {
+            $file = $request->file('title_deed');
+            $filename = time() . '.' . $file->getClientOriginalExtension();
+            $file->move(public_path('title_deeds'), $filename);
+            $product->title_deed = $filename; // Store the path to the title deed
+        }
+
+        toastr()->timeout (5000)->closeButton()->addSuccess('Product updated successfully!'); 
+
+        $product->save();
+
+        return redirect('/view_product'); // Redirect back with a success message
+    }
+
 }

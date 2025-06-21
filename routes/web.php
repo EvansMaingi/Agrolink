@@ -48,4 +48,8 @@ Route::post('upload_product',[FarmerController::class,'upload_product']);
 Route::get('view_product',[FarmerController::class,'view_product']);
 
 
+Route::get('delete_product/{id}',[FarmerController::class,'delete_product']);
 
+Route::post('edit_product/{id}',[FarmerController::class,'edit_product']);
+
+Route::get('update_product/{id}',[FarmerController::class,'update_product']);
