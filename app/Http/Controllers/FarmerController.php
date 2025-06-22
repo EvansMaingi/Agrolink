@@ -179,4 +179,11 @@ class FarmerController extends Controller
         return redirect('/view_product'); // Redirect back with a success message
     }
 
+    public function product_search(Request $request)
+    {
+        $search = $request->input('search');
+        $product = Product::where('title', 'like', '%' . $search . '%')->orWhere('category','like','%'.$search.'%')->paginate(3);// Search for products by title
+        return view('farmer.view_product', compact('product')); // Make sure this view exists: resources/views/farmer/view_product.blade.php
+    } 
+
 }

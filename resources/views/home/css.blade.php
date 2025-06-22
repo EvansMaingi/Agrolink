@@ -8,8 +8,23 @@
         <p><a href="#">Contact Us</a></p>
     </div>
 
+    @if (Route::has('login'))
+
+    @auth
+    <form method="POST" action="{{ route('logout') }}">
+        @csrf
+        <input type="submit" value="logout">
+
+    </form>
+
+    @else
+
     <div class="auth-buttons">
         <a href="{{ route('login') }}" class="login-btn">Login</a>
         <a href="{{ route('register') }}" class="register-btn">Register</a>
     </div>
 </div>
+
+@endauth
+
+@endif 

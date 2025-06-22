@@ -18,9 +18,12 @@ use App\Http\Controllers\FarmerController;
 
 route::get('/', [HomeController::class, 'home'] );
 
-Route::get('/dashboard', function () {
-    return view('dashboard');
-})->middleware(['auth', 'verified'])->name('dashboard');
+
+route::get('/dashboard', [HomeController::class, 'login_home'])
+ ->middleware(['auth', 'verified'])->name('dashboard');
+
+
+
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
@@ -53,3 +56,6 @@ Route::get('delete_product/{id}',[FarmerController::class,'delete_product']);
 Route::post('edit_product/{id}',[FarmerController::class,'edit_product']);
 
 Route::get('update_product/{id}',[FarmerController::class,'update_product']);
+
+Route::get('product_search',[FarmerController::class,'product_search']);
+

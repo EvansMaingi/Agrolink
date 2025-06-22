@@ -90,9 +90,38 @@
       color: #666;
       cursor: not-allowed;
     }
+
+    input[type="search"] {
+      width: 50%;
+      padding: 10px;
+      border: 1px solid #ced4da;
+      border-radius: 5px;
+      margin-bottom: 10px;
+    }
+
+    .logout-button {
+      text-align: right;
+      margin: 20px;
+    }
+    
   </style>
 </head>
 <body>
+
+<div class="logout-button">
+        <form method="POST" action="{{ route('logout') }}">
+          @csrf
+          <input type="submit" value="Logout">
+        </form>
+      </div>
+
+
+<form action="{{ url('product_search') }}" method="get">
+  @csrf
+
+  <input type="search" name="search">
+  <input type="submit" class="btn btn-secondary" value="Search">
+</form>
 
   <div class="table-container">
     <table class="table table-bordered">

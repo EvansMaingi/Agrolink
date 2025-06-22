@@ -13,12 +13,30 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@200&family=Poppins&family=Space+Grotesk&display=swap" rel="stylesheet">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>AgroLink website</title>
+
+
+   
+
 </head>
 
 <body>
     <div>
+    
         @include('home.css')
+
+   
+
+
+
+
+
+
+
+</div>
+
     </div>
+
+   
     
 
     <div class="about-agriplus">
@@ -43,6 +61,9 @@
     </div>
 
     <div class="vendors">
+
+   
+
         <ul>
         <li>200+<br>
             Verified Vendors</li>
@@ -80,66 +101,23 @@
     </div>
 
     <div class="popular">
+
+
+        @foreach($products as $product)
+
         <h2><span>Most</span> Popular</h2>
 
         <div class="about-images">
             <div class="image">
-                <img src="./images/eggs.jpeg" alt="eggs">
-                <h3>Eggs</h3>
-                <P>Kinyanjui farmers Association</P>
-                <p>Ksh. 200/kg</p>
+                <img src="{{ asset('images/' . $product->image) }}">
+                <h3>{{ $product->title }}</h3>
+                <P>{{ $product->price }}</P>
+                <p></p>
             </div>
-            <div class="image">
-                <img src="./images/milk products.jpeg" alt="milk products">
-                <h3>Milk Products</h3>
-                <p> Kenya Milk Board</p>
-                <p>Ksh. 5000/litre</p>
-            </div>
-            <div class="image">
-                <img src="./images/image 5.png" alt="frsh fish">
-                <h3>Fresh Fish/Tilapia</h3>
-                <p>Mr Otieno</p>
-                <p>Ksh. 500/kg</p>
-            </div>
-            <div class="image">
-                <img src="./images/image 6.png" alt="sukuma wiki">
-                <h3>Kales/Sikuma</h3>
-                <p>Njoki's Farm</p>
-                <p>Ksh.50/bunch</p>
-            </div>
-        </div>
-    </div>
+           </div> 
 
-    <div class="new-item">
-        <h2> <span>Newest</span> Item</h2>
 
-        <div class="about-images">
-            <div class="image">
-                <img src="./images/Rectangle 6.png" alt="Fresh Carrots">
-                <h3>Chicken</h3>
-                <P>Wafula farm</P>
-                <p>Ksh. 700</p>
-            </div>
-            <div class="image">
-                <img src="./images/Rectangle 7.png" alt="cereals">
-                <h3>Ahero/Ir Rice</h3>
-                <p> Ahero Irrigation Board</p>
-                <p>Ksh. 200/bag</p>
-            </div>
-            <div class="image">
-                <img src="./images/Rectangle 8.png" alt="frsh fish">
-                <h3>Mursik</h3>
-                <p>Korir Diary Farm</p>
-                <p>Ksh. 200/kg</p>
-            </div>
-            <div class="image">
-                <img src="./images/Rectangle 9.png" alt="sukuma wiki">
-                <h3>Fresh Tomatoes</h3>
-                <p>TZ Farmers Association</p>
-                <p>Ksh.5000/Crate</p>
-            </div>
-        </div>
-    </div>
+           @endforeach
 
     <div class="more">
         <h3><span>See</span> All<span id="arrow">&#8594</span></h3>
@@ -206,6 +184,8 @@
         <span><input type="email" placeholder="Enter your Email address"><button type="submit" id="button">Subscribe</button></span>
 
     </div>
+
+    
 
     <!-- about footer -->
 
