@@ -81,6 +81,8 @@ class FarmerController extends Controller
         $product->price = $request->price;
         $product->category = $request->category;
         $product->contacts = $request->contacts;
+        $product->location = $request->location; // Add location field
+        $product->email = $request->email; // Add email field
 
         if ($request->hasFile('image')) {
             $file = $request->file('image');
@@ -157,6 +159,8 @@ class FarmerController extends Controller
         $product->price = $request->price;
         $product->category = $request->category;
         $product->contacts = $request->contacts;
+        $product->location = $request->location; // Add location field
+        $product->email = $request->email; // Add email field
 
         if ($request->hasFile('image')) {
             $file = $request->file('image');

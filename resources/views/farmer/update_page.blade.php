@@ -116,6 +116,16 @@
         <input type="text" name="contacts" value="{{ $product->contacts }}">
       </div>
 
+      <div>
+        <label>Location</label>
+        <input type="text" name="location" value="{{ $product->location }}">
+      </div>
+
+      <div>
+        <label>Email</label>
+        <input type="text" name="email" value="{{ $product->email }}">
+      </div>
+
       <input type="submit" value="Update Product">
     </form>
   </div>

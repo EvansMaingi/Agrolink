@@ -59,3 +59,11 @@ Route::get('update_product/{id}',[FarmerController::class,'update_product']);
 
 Route::get('product_search',[FarmerController::class,'product_search']);
 
+Route::get('product_details/{id}',[HomeController::class,'product_details']);
+
+Route::get('add_star/{id}',[HomeController::class,'add_star'])->middleware(['auth', 'verified']);
+
+
+Route::get('starred',[HomeController::class,'starred'])->middleware(['auth', 'verified']);
+
+Route::delete('star.destroy/{id}', [HomeController::class, 'destroy_star'])->name('star.destroy')->middleware(['auth', 'verified']);    

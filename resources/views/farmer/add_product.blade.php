@@ -103,6 +103,15 @@
     </div>
 
     <div>
+      <label>Location</label>
+      <input type="text" name="location">
+
+    <div>
+
+    <div>
+      <label>Email</label>
+      <input type="text" name="email" required>
+    </div>
       
       <input class="btn btn-success" type="submit" Valu="add Product">
     </div>
