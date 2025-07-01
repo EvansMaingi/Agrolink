@@ -43,10 +43,30 @@
       margin: 8px 0;
     }
 
+    .inquiry-form {
+      margin-top: 30px;
+    }
+
+    .inquiry-form textarea {
+      width: 100%;
+      padding: 12px;
+      border-radius: 8px;
+      border: 1px solid #ccc;
+      resize: vertical;
+    }
+
+    .inquiry-form button {
+      margin-top: 10px;
+      background-color: #2d6a4f;
+      color: white;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 6px;
+    }
+
     .back-button {
       margin-top: 20px;
     }
-
   </style>
 </head>
 
@@ -64,7 +84,17 @@
       <p><strong>Category:</strong> {{ $data->category }}</p>
       <p><strong>Location:</strong> {{ $data->location }}</p>
       <p><strong>Contacts:</strong> {{ $data->contacts }}</p>
-      <p><strong>email:</strong> {{ $data->email}}</p>
+      <p><strong>Email:</strong> {{ $data->email }}</p>
+    </div>
+
+    <!-- Inquiry Form -->
+    <div class="inquiry-form">
+      <h4>Send an Inquiry to the Farmer</h4>
+      <form method="POST" action="{{ route('inquiry.send', $data->id) }}">
+        @csrf
+        <textarea name="message" rows="4" placeholder="Write your inquiry here..." required></textarea>
+        <button type="submit">Send Inquiry</button>
+      </form>
     </div>
 
     <a href="{{ url()->previous() }}" class="btn btn-outline-success back-button">Back</a>

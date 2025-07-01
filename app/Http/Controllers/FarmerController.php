@@ -190,4 +190,6 @@ class FarmerController extends Controller
         return view('farmer.view_product', compact('product')); // Make sure this view exists: resources/views/farmer/view_product.blade.php
     } 
 
+    
+
 }

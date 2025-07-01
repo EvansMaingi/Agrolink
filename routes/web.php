@@ -4,7 +4,7 @@ use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\FarmerController;
-
+use App\Http\Controllers\InquiryController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -66,4 +66,9 @@ Route::get('add_star/{id}',[HomeController::class,'add_star'])->middleware(['aut
 
 Route::get('starred',[HomeController::class,'starred'])->middleware(['auth', 'verified']);
 
-Route::delete('star.destroy/{id}', [HomeController::class, 'destroy_star'])->name('star.destroy')->middleware(['auth', 'verified']);    
+Route::delete('star.destroy/{id}', [HomeController::class, 'destroy_star'])->name('star.destroy')->middleware(['auth', 'verified']);  
+
+Route::middleware(['auth'])->group(function () {
+    Route::post('/inquiry/send/{id}', [InquiryController::class, 'send'])->name('inquiry.send');
+    Route::get('/farmer/inbox', [InquiryController::class, 'inbox'])->name('farmer.inbox');
+});
