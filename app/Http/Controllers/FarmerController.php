@@ -81,6 +81,8 @@ class FarmerController extends Controller
         $product->price = $request->price;
         $product->category = $request->category;
         $product->contacts = $request->contacts;
+        $product->location = $request->location; // Add location field
+        $product->email = $request->email; // Add email field
 
         if ($request->hasFile('image')) {
             $file = $request->file('image');
@@ -157,6 +159,8 @@ class FarmerController extends Controller
         $product->price = $request->price;
         $product->category = $request->category;
         $product->contacts = $request->contacts;
+        $product->location = $request->location; // Add location field
+        $product->email = $request->email; // Add email field
 
         if ($request->hasFile('image')) {
             $file = $request->file('image');
@@ -185,5 +189,7 @@ class FarmerController extends Controller
         $product = Product::where('title', 'like', '%' . $search . '%')->orWhere('category','like','%'.$search.'%')->paginate(3);// Search for products by title
         return view('farmer.view_product', compact('product')); // Make sure this view exists: resources/views/farmer/view_product.blade.php
     } 
+
+    
 
 }

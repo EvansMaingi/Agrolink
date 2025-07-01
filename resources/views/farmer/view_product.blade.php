@@ -133,7 +133,9 @@
           <th>Title Deed</th>
           <th>Price</th>
           <th>Category</th>
+          <th>Location</th>
           <th>Contacts</th>
+          <th>Email</th>          
            <th>Edit</th>
           <th>Delete</th>
           
@@ -148,7 +150,9 @@
           <td><img src="{{ asset('title_deeds/' . $products->title_deed) }}"></td>
           <td>{{ $products->price }}</td>
           <td>{{ $products->category }}</td>
+          <td>{{ $products->location }}</td>
           <td>{{ $products->contacts }}</td>
+          <td>{{ $products->email }}</td>
 
           <td>
            <a class="btn btn-primary" href="{{ url('update_product', $products->id) }}">Edit</a>

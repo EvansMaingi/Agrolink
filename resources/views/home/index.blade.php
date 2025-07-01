@@ -12,12 +12,112 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@200&family=Poppins&family=Space+Grotesk&display=swap" rel="stylesheet">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+
     <title>AgroLink website</title>
 
 
    
 
 </head>
+
+<style>
+ .about-images {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: center;
+  margin-top: 30px;
+}
+
+.image {
+  position: relative;
+  flex: 0 0 220px;
+  background-color: #fff;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  padding: 15px;
+  text-align: center;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s;
+  overflow: hidden;
+  padding-bottom: 50px; /* space for button */
+}
+
+.image:hover {
+  transform: translateY(-5px);
+}
+
+.image img {
+  width: 100%;
+  height: 150px;
+  object-fit: cover;
+  border-radius: 6px;
+  margin-bottom: 10px;
+}
+
+.details-btn {
+  position: absolute;
+  bottom: 10px;
+  left: 10px;
+  padding: 6px 12px;
+  font-size: 14px;
+  border-radius: 5px;
+  background-color: #28a745;
+  border: none;
+  color: white;
+  text-decoration: none;
+}
+
+.details-btn:hover {
+  background-color: #218838;
+}
+
+..product-card {
+    position: relative;
+    width: 250px;
+    background: #fff;
+    border-radius: 12px;
+    padding: 15px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    margin: 20px;
+}
+
+.product-card img {
+    width: 100%;
+    border-radius: 10px;
+    object-fit: cover;
+}
+
+.btn-star {
+    position: absolute;
+    bottom: 15px;
+    right: 15px;
+    background-color: #ffc107;
+    color: #fff;
+    border: none;
+    padding: 8px 16px;
+    font-weight: bold;
+    border-radius: 25px;
+    box-shadow: 0 4px 8px rgba(255, 193, 7, 0.3);
+    transition: all 0.3s ease;
+    text-decoration: none;
+}
+
+.btn-star:hover {
+    background-color: #e0a800;
+    transform: scale(1.05);
+}
+
+.fas.fa-star {
+    color: gold;
+    font-size: 18px;
+}
+
+
+
+
+</style>
 
 <body>
     <div>
@@ -103,21 +203,20 @@
     <div class="popular">
 
 
-        @foreach($products as $product)
+     <div class="about-images">
+  @foreach($products as $product)
+    <div class="image">
+        <img src="{{ asset('images/' . $product->image) }}">
+        <h3>{{ $product->title }}</h3>
+        <p>Ksh. {{ $product->price }}</p>
+        <a class="btn btn-primary details-btn" href="{{ url('product_details', $product->id) }}">Details</a>
+     <a class="btn-star" href="{{ url('add_star', $product->id) }}">★ Star</a>
+</a>
 
-        <h2><span>Most</span> Popular</h2>
+    </div>
+  @endforeach
+</div>
 
-        <div class="about-images">
-            <div class="image">
-                <img src="{{ asset('images/' . $product->image) }}">
-                <h3>{{ $product->title }}</h3>
-                <P>{{ $product->price }}</P>
-                <p></p>
-            </div>
-           </div> 
-
-
-           @endforeach
 
     <div class="more">
         <h3><span>See</span> All<span id="arrow">&#8594</span></h3>
