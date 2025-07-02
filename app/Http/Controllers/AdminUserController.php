@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\User;
+use App\Models\Product;
 use Illuminate\Support\Facades\Hash;
 
 class AdminUserController extends Controller
@@ -11,7 +12,14 @@ class AdminUserController extends Controller
     public function index()
     {
         $users = User::all();
-        return view('admin.index', compact('users'));
+
+        return view('admin.index', [
+            'users' => $users,
+            'totalUsers' => $users->count(),
+            'totalFarmers' => $users->where('usertype', 'farmer')->count(),
+            'totalBuyers' => $users->where('usertype', 'user')->count(),
+            'totalProducts' => Product::count(),
+        ]);
     }
 
     public function store(Request $request)

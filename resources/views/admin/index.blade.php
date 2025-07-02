@@ -40,6 +40,36 @@
 </nav>
 
 <div class="container mt-5">
+
+<div class="row mb-4">
+    <div class="col-md-3">
+        <div class="card text-center shadow-sm p-3">
+            <h6>Total Users</h6>
+            <h4>{{ $totalUsers }}</h4>
+        </div>
+    </div>
+    <div class="col-md-3">
+        <div class="card text-center shadow-sm p-3">
+            <h6>Total Farmers</h6>
+            <h4>{{ $totalFarmers }}</h4>
+        </div>
+    </div>
+    <div class="col-md-3">
+        <div class="card text-center shadow-sm p-3">
+            <h6>Total Buyers</h6>
+            <h4>{{ $totalBuyers }}</h4>
+        </div>
+    </div>
+    <div class="col-md-3">
+        <div class="card text-center shadow-sm p-3">
+            <h6>Total Products</h6>
+            <h4>{{ $totalProducts }}</h4>
+        </div>
+    </div>
+</div>
+
+
+
     <h2 class="mb-4">Add New User</h2>
 
     @if(session('success'))
