@@ -98,6 +98,8 @@ class FarmerController extends Controller
             $product->title_deed = $filename; // Store the path to the title deed
         }
 
+        $product->farmer_id = auth()->id(); // Assuming the farmer is the authenticated user
+
         toastr()->timeout (5000)->closeButton()->addSuccess('Product added successfully!'); 
 
         $product->save();
@@ -105,11 +107,13 @@ class FarmerController extends Controller
         return redirect()->back(); // Redirect back with a success message
     }
 
-    public function view_product()
-    {
-        $product= Product::paginate(4); // Fetch all products from the database
-       return view('farmer.view_product', compact('product')); // Make sure this view exists: resources/views/farmer/view_product.blade.php
-    }
+   public function view_product()
+{
+    $farmerId = auth()->id(); // Get the logged-in farmer's ID
+    $product = Product::where('farmer_id', $farmerId)->paginate(4); // Only fetch this farmer's products
+    
+    return view('farmer.view_product', compact('product'));
+}
 
 
     public function delete_product($id)

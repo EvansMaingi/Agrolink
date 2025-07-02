@@ -5,6 +5,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\FarmerController;
 use App\Http\Controllers\InquiryController;
+use App\Http\Controllers\AdminUserController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -70,5 +71,25 @@ Route::delete('star.destroy/{id}', [HomeController::class, 'destroy_star'])->nam
 
 Route::middleware(['auth'])->group(function () {
     Route::post('/inquiry/send/{id}', [InquiryController::class, 'send'])->name('inquiry.send');
-    Route::get('/farmer/inbox', [InquiryController::class, 'inbox'])->name('farmer.inbox');
+    Route::get('/farmer/dashboard', [InquiryController::class, 'index'])->name('farmer.dashboard');
+    Route::delete('/inquiry/{id}', [InquiryController::class, 'destroy'])->name('inquiry.destroy');
+
+
 });
+
+
+// Admin User Management
+Route::middleware(['auth'])->group(function () {
+    Route::get('/admin/dashboard', [AdminUserController::class, 'index'])->name('admin.index');
+    Route::post('/admin/store', [AdminUserController::class, 'store'])->name('admin.store');
+    Route::get('/admin/delete/{id}', [AdminUserController::class, 'delete'])->name('admin.delete');
+});
+
+
+
+
+
+
+
+
+

@@ -144,6 +144,7 @@
                   <th>From</th>
                   <th>Message</th>
                   <th>Sent At</th>
+                  <th>Action</th>
                 </tr>
               </thead>
               <tbody>
@@ -153,6 +154,12 @@
                   <td>{{ $inquiry->user->name ?? 'Guest' }}</td>
                   <td>{{ $inquiry->message }}</td>
                   <td>{{ $inquiry->created_at->diffForHumans() }}</td>
+                  <td>
+                    <form action="{{ route('inquiry.destroy', $inquiry->id) }}" method="POST" onsubmit="return confirmation(event);">
+                      @csrf
+                      @method('DELETE')
+                      <button type="submit" class="btn btn-sm btn-danger">Remove</button>
+                    </form>
                 </tr>
                 @endforeach
               </tbody>

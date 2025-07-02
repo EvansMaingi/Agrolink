@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Inquiry;
+use App\Models\Category;
 use Illuminate\Support\Facades\Auth;
 
 class InquiryController extends Controller
@@ -16,37 +17,44 @@ class InquiryController extends Controller
 
         $inquiry = new Inquiry();
         $inquiry->product_id = $productId;
-        $inquiry->user_id = Auth::check() ? Auth::id() : null; // optional if guest
+        $inquiry->user_id = Auth::id(); // Assumes user must be logged in
         $inquiry->message = $request->message;
         $inquiry->save();
 
         return back()->with('success', 'Inquiry sent successfully!');
     }
 
-    public function inbox()
+    public function index()
+    {
+        $farmerId = auth()->id();
+
+        // Fetch categories for the sidebar
+        $categories = Category::all();
+
+
+        // Fetch inquiries for this farmer's products
+        $inquiries = Inquiry::whereHas('product', function ($query) use ($farmerId) {
+            $query->where('farmer_id', $farmerId);
+        })->with(['product', 'user'])->latest()->get();
+
+        return view('farmer.index', compact('categories', 'inquiries'));
+    }
+
+
+  public function destroy($id)
 {
-    $farmerId = auth()->id(); // The logged-in farmer
+    $inquiry = \App\Models\Inquiry::findOrFail($id);
 
-    // Get all inquiries for products owned by this farmer
-    $inquiries = Inquiry::whereHas('product', function ($query) use ($farmerId) {
-        $query->where('farmer_id', $farmerId);
-    })->with('product', 'user')->latest()->get();
+    // Optional: Add check to ensure only the product owner (farmer) can delete
+    if ($inquiry->product->farmer_id !== auth()->id()) {
+        abort(403); // Forbidden
+    }
 
-    return view('farmer.index', compact('inquiries'));
+    $inquiry->delete();
+
+    return redirect()->back()->with('success', 'Inquiry deleted.');
 }
 
 
-public function index()
-{
-    $categories = Category::where('farmer_id', auth()->id())->get();
 
-    $inquiries = Inquiry::whereHas('product', function ($q) {
-        $q->where('farmer_id', auth()->id());
-    })->with(['product', 'user'])->get();
-
-    return view('farmer.index', compact('categories', 'inquiries'));
-}
-
-
-   
 }
