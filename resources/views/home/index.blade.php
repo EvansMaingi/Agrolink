@@ -3,17 +3,9 @@
 
 <head>
     <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <link rel="stylesheet" href="css/style.css">
-    <link href='https://unpkg.com/boxicons@2.1.2/css/boxicons.min.css' rel='stylesheet'>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@200&family=Poppins&family=Space+Grotesk&display=swap" rel="stylesheet">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
+  
     <title>AgroLink website</title>
 
 
@@ -114,6 +106,283 @@
     font-size: 18px;
 }
 
+.main {
+    display: flex;
+    align-items: center;
+    /* justify-content: space-between; */
+    height: 100vh; 
+    background-color: none;
+    
+}
+
+.farm {
+    
+    width: 100%;
+    height: 100%;
+    margin-top: 90px;
+    overflow: hidden;
+}
+
+
+.farm img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Ensures the image fills the container without distortion */
+    display: block;
+    
+}
+
+.farm::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 640px;
+    background: rgba(0, 0, 0, 0.2); /* Black overlay (adjust 0.4 for darkness) */
+}
+
+
+
+.smallcont{
+    position: absolute;
+    top: 150px;
+    left: 100px;
+    width: 600px;
+    height: 200px;
+    background-color: rgba(128, 128, 128, 0.16);
+    overflow: hidden;
+    align-items: center;
+    border-radius: 5px;
+    /z-index: 1;/
+    padding: 20px;
+}
+
+.smallcont h1{
+    color: white;
+    font-weight: bold;
+    text-align: justify;
+    font-size: 3.0rem;
+    margin-right: 40px;
+}
+
+.smallcont p{
+    color: white;
+    font-style: italic;
+    text-align:left;
+    /margin-left: 130px;/
+    font-size: 1.2rem;
+    line-height: 1.5;
+}
+
+.Explore {
+    position: absolute;
+    top: 350px;  
+    color: #fff;
+    font-weight: bold;
+    left: 100px;
+    transition: transform 0.3s, box-shadow 0.3s;
+    /font-size: 2.0rem;/
+}
+
+.Explore:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+}
+.Explore a[href="#Discover"]{
+    background-color: green;
+    color:white;
+    text-decoration: none;
+    border-radius: 5px;
+    margin: 0 15px;
+    padding: 8px 12px;
+
+}
+
+.about-section {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    margin: 0 auto;
+    padding: 80px 20px;
+    gap: 60px;
+    background: linear-gradient(to right, #f9f9f9 50%, white 50%);
+}
+
+/* Image Section */
+.about-image {
+    flex: 1;
+    min-width: 450px;
+    height: 500px;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+    transform: rotate(-2deg);
+    transition: transform 0.3s ease;
+}
+
+.about-image:hover {
+    transform: rotate(0deg) scale(1.02);
+}
+
+.about-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+}
+
+/* Content Section */
+.about-content {
+    flex: 1;
+    padding: 40px;
+}
+
+.about-title {
+    font-size: 2.5rem;
+    line-height: 1.3;
+    color: #2a7d2e;
+    margin-bottom: 25px;
+    font-weight: 700;
+}
+
+.highlight {
+    color: #1e5a21;
+    text-shadow: 1px 1px 2px rgba(0,0,0,0.1);
+}
+
+.divider {
+    width: 80px;
+    height: 4px;
+    background: linear-gradient(to right, #2a7d2e, #5cb85c);
+    margin: 20px 0;
+    border-radius: 2px;
+}
+
+.about-description {
+    font-size: 1.1rem;
+    line-height: 1.8;
+    color: #444;
+    margin-bottom: 30px;
+}
+
+.cta-button {
+    background: linear-gradient(to right, #2a7d2e, #5cb85c);
+    color: white;
+    border: none;
+    padding: 15px 35px;
+    font-size: 1rem;
+    font-weight: 600;
+    border-radius: 50px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 5px 15px rgba(42, 125, 46, 0.3);
+}
+
+.cta-button:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 20px rgba(42, 125, 46, 0.4);
+}
+
+.simple-contact {
+    /*max-width: 500px;*/
+    width: 100%;
+    margin: 40px auto;
+    padding: 30px;
+    text-align: center;
+    background: linear-gradient(to right, #2a7d2e, #5cb85c);
+
+    border-radius: 10px;
+    box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+}
+
+.simple-contact h2 {
+    color: #2a7d2e;
+    margin-bottom: 15px;
+    font-size: 1.8rem;
+}
+
+.contact-divider {
+    width: 60px;
+    height: 3px;
+    background: #5cb85c;
+    margin: 0 auto 25px;
+    border-radius: 3px;
+}
+
+.contact-methods {
+    margin-bottom: 30px;
+}
+
+.contact-item {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    margin: 20px 0;
+    font-size: 1.1rem;
+    color: #333;
+}
+
+.contact-item i {
+    color: #2a7d2e;
+    font-size: 1.3rem;
+    width: 25px;
+}
+
+
+.social-links {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+
+.social-links a {
+    color: white;
+    background: #2a7d2e;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s;
+    text-decoration: none;
+}
+
+.social-links a:hover {
+    background: #1e5a21;
+    transform: translateY(-3px);
+}
+
+.service-header {
+    text-align: center;
+    margin: 60px 0;
+}
+
+.service-header h1 {
+    font-size: 2.5rem;
+    color: #2a7d2e;
+    margin-bottom: 10px;
+}
+
+.header-divider {
+    width: 80px;
+    height: 4px;
+    background: linear-gradient(to right, #2a7d2e, #5cb85c);
+    margin: 20px auto;
+    border-radius: 2px;
+}
+
+.service-header p {
+    font-size: 1.1rem;
+    color: #555;
+    margin-bottom: 40px;
+}
+
+
+
+
 
 
 
@@ -139,65 +408,53 @@
    
     
 
-    <div class="about-agriplus">
+    <div class="main">
+        <div class="farm">
+            <img src="images/2.jpg" alt="alt">
+            <div class="smallcont">
+                <h1>Welcome To AgroLink</h1><br>
+                <p>Empowering Agriculture, One Listing at a Time</p> 
+            </div>
+            <div class="Explore">
+                <a href="#Discover" class="nDiscover">Discover More</a>
+            </div>
 
-        <div class="about-text">
-
-            <h1>
-                Buying and selling quality<br>
-                farm produce has never <br>
-                been easier
-            </h1>
-
-            <p>AgroLink is here to have you sorted, you can order farm<br>
-                produce from the farmers, harvesters, and producers<br>
-                directly
-            </p>
-            <button id="btn">Explore More</button>
         </div>
-        <div class="about-img">
-            <img src="./images/farmer a.jpeg" alt="farm products">
+            
+
+    </div>
+
+    <div class="about-section">
+        <div class="about-image">
+            <img src="images/1.jpg" alt="Farmers using AgroLink platform">
+        </div>
+        <div class="about-content">
+            <h2 class="about-title">
+                <span class="highlight">AgroLink</span> connects farmers and landowners 
+                with buyers through a simple, reliable platform
+            </h2>
+            <div class="divider"></div>
+            <p class="about-description">
+                We empower farmers to reach wider markets by listing land and produce directly online. 
+                Our platform eliminates middlemen, making transactions faster, fairer, 
+                and more accessible for everyone.
+            </p>
+            <button class="cta-button">Get Started</button>
         </div>
     </div>
 
-    <div class="vendors">
+
+
+    
+
+
 
    
 
-        <ul>
-        <li>200+<br>
-            Verified Vendors</li>
-        <li>105+<br>
-            Happy Customers</li>
-        <li>2000+<br>
-            Nation Wide Customers</li>
-        </ul>
-    </div>
-
-
-
-
-    <div class="exists">
-        <div class="about-exists">
-            <h2><span id="two">Why w</span>e exist</h2>
-            <p>we are built to make your work easier , like only online<br>
-                ecommerce , Agriplus provide a great platform for<br>
-                farmers to reach their customers throughout the <br>
-                country .We have made it easier to shop from<br>
-                anywhere through the platform.
-            </p>
-        </div>
-        <div class="its-image">
-            <img src="./images/farm f.jpeg" alt=" ">
-        </div>
-    </div>
-
-
-    <div class="category">
-        <h2>Our cate<span id="two">gories</span> of products</h2>
-        <p>We go beyond the borders to ensure you get fresh produce<br>
-            from the farm. Our customers satisfaction is our mission.
-        </p>
+    <div class="service-header">
+        <h1>Here are the listings</h1>
+        <div class="header-divider"></div>
+        <p>Discover our premium land and agricultural options</p>
     </div>
 
     <div class="popular">
@@ -211,126 +468,36 @@
         <p>Ksh. {{ $product->price }}</p>
         <a class="btn btn-primary details-btn" href="{{ url('product_details', $product->id) }}">Details</a>
      <a class="btn-star" href="{{ url('add_star', $product->id) }}">★ Star</a>
-</a>
+
 
     </div>
   @endforeach
 </div>
 
-
-    <div class="more">
-        <h3><span>See</span> All<span id="arrow">&#8594</span></h3>
-
-    </div>
-   <hr>
-    <div class="about-customers">
-        <h1>What our Esteemed customers has to say about us.</h1>
-    </div>
-    <div class="feedback">
-        <div class="customers">
-            <div class="stars">
-                <i class='bx bxs-star'></i>
-                <i class='bx bxs-star'></i>
-                <i class='bx bxs-star'></i>
-                <i class='bx bxs-star'></i>
-                <i class='bx bxs-star'></i>
-            </div>
-            <p>"The most<br>efficient way to<br>get fresh<br>produce"</p>
-            <div class="pics">
-                <img src="./images/Rectangle 11.png" alt="mkulima">
-                <p id="name">Rebbeca Mkulima</p>
-            </div>
-        </div>
-        <div class="customers">
-            <div class="stars">
-                <i class='bx bxs-star'></i>
-                <i class='bx bxs-star'></i>
-                <i class='bx bxs-star'></i>
-                <i class='bx bxs-star'></i>
-                <i class='bx bxs-star'></i>
-            </div>
-            <p>"Connecting rural<br>to urban through<br>business" </p>
-            <div class="pics">
-                <img src="./images/Rectangle 11-1.png" alt="mkulima">
-                <p id="name">John doe</p>
-            </div>
-        </div>
-
-        <div class="customers">
-            <div class="stars">
-                <i class='bx bxs-star'></i>
-                <i class='bx bxs-star'></i>
-                <i class='bx bxs-star'></i>
-                <i class='bx bxs-star'></i>
-                <i class='bx bxs-star'></i>
-            </div>
-            <p>"Connecting rural<br>to urban through<br>business" </p>
-            <div class="pics">
-                <img src="./images/Rectangle 11-2.png" alt="mkulima">
-                <p id="name">Lavington dwellers</p>
-            </div>
-        </div>
-    </div>
-
-    <div class="more">
-        <h3><span>Read</span> More <span id="arrow">&#8594</span></h3>
-    </div>
-
-<!-- Email subscription -->
-    <div class="about-email">
-        <h1>We'd like to keep you in touch</h1>
-        <p>Subscribe to our newsletter</p>
-        <span><input type="email" placeholder="Enter your Email address"><button type="submit" id="button">Subscribe</button></span>
-
-    </div>
-
+<div class="simple-contact">
+    <h2>Contact AgroLink</h2>
+    <div class="contact-divider"></div>
     
-
-    <!-- about footer -->
-
-    <div class="about-us">
-        <div class="about-app">
-            <p id="logo">AgriPlus</p>
-            <p>Quality Farn produce through<br> buying and selling</p>
-          <div class="icons">
-              <i class='bx bxl-facebook-circle'></i>
-              <i class='bx bxl-instagram' ></i>
-          </div>
-            <h2>Get the app</h2>
-            <div class="images">
-                <img src="https://www.bystanderchronicles.com/wp-content/uploads/2019/06/AppStoreBadge.png" alt="">
-               <img src="https://www.bystanderchronicles.com/wp-content/uploads/2019/06/GooglePlayBadge1.png" alt="">
-           </div>
-           
+    <div class="contact-methods">
+        <div class="contact-item">
+            <i class="fas fa-envelope"></i>
+            <span>hello@agrolink.co.ke</span>
         </div>
-        <div class="company">
-            <h2>Company</h2>
-            <ul>
-                <li>About</li>
-                <li>Product</li>
-                <li>contact Us</li>
-            </ul>
+        
+        <div class="contact-item">
+            <i class="fas fa-phone"></i>
+            <span>+254 578 788 634</span>
         </div>
-        <div class="products">
-            <h2>Products</h2>
-            <ul>
-                <li>Diary</li>
-                <li>Cereals</li>
-                <li>Vegetable & Fruits</li>
-                <li>More.....</li>
-            </ul>
-        </div>
-
-        <div class="others">
-            <h2>Others</h2>
-            <ul>
-                <li>FAQs</li>
-                <li>Terms of services</li>
-                <li>Privacy and policy</li>
-            </ul>
-        </div>
-           
     </div>
+    
+    <div class="social-links">
+        <a href="#"><i class="fab fa-facebook"></i></a>
+        <a href="#"><i class="fab fa-twitter"></i></a>
+        <a href="#"><i class="fab fa-instagram"></i></a>
+        <a href="#"><i class="fab fa-linkedin"></i></a>
+    </div>
+</div>
+
    
 
 </body>
