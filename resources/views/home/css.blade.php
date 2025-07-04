@@ -122,45 +122,33 @@
 
     
     
-    <div class="navigation">
-        <div class="nav-left">
-            <img src="images/3.jpg" alt="">
-            <p>AgroLink</p>
-        </div>
-        <div class="nav-right">
-            
-                <a href="#home">Home</a>
-                <a href="#about">About</a>
-                <a href="#products">Products</a>
-             <a href="{{ route('login') }}" class="login-btn">Login</a>
-               <a href="{{ route('register') }}" class="register-btn">Register</a>
-                <a href="#contact">Contacts</a>
-            
-        </div>
+   <div class="navigation">
+    <div class="nav-left">
+        <img src="images/3.jpg" alt="">
+        <p>AgroLink</p>
     </div>
 
-    @if (Route::has('login'))
+    <div class="nav-right">
+        <a href="#home">Home</a>
+        <a href="#about">About</a>
+        <a href="#products">Products</a>
+        <a href="#contact">Contacts</a>
 
-    @auth
-   <div style="display: flex; align-items: center;">
-    <a href="{{ url('starred') }}" style="display: flex; align-items: center; text-decoration: none;">
-        <i class="fas fa-star" style="color: gold; font-size: 24px; margin-right: 5px;"></i>
-        <span style="font-size: 18px; color: #334;">{{ $count }}</span>
-    </a>
+        @if (Route::has('login'))
+            @auth
+                <a href="{{ url('starred') }}" style="display: flex; align-items: center; text-decoration: none;">
+                    <i class="fas fa-star" style="color: gold; font-size: 20px; margin-right: 5px;"></i>
+                    <span style="font-size: 16px; color: #334;">{{ $count }}</span>
+                </a>
+
+                <form method="POST" action="{{ route('logout') }}" style="display: inline;">
+                    @csrf
+                    <input type="submit" value="Logout">
+                </form>
+            @else
+                <a href="{{ route('login') }}" class="login-btn">Login</a>
+                <a href="{{ route('register') }}" class="register-btn">Register</a>
+            @endauth
+        @endif
+    </div>
 </div>
-
-   
-    <form method="POST" action="{{ route('logout') }}">
-        @csrf
-        <input type="submit" value="logout">
-
-    </form>
-
-    @else
-
-    
-</div>
-
-@endauth
-
-@endif 
