@@ -124,15 +124,16 @@
     
    <div class="navigation">
     <div class="nav-left">
-        <img src="images/3.jpg" alt="">
+        <img src="images/logo.jpg" alt="">
         <p>AgroLink</p>
     </div>
 
     <div class="nav-right">
-        <a href="#home">Home</a>
-        <a href="#about">About</a>
-        <a href="#products">Products</a>
-        <a href="#contact">Contacts</a>
+        <a href="{{ '/' }}#farm">Home</a>
+        <a href="{{ '/' }}#about-section">About</a>
+        <a href="{{ '/' }}#Discover">Products</a>
+        <a href="/faqs">FAQs</a>
+        <a href="{{ '/' }}#simple-contact">Contacts</a>
 
         @if (Route::has('login'))
             @auth

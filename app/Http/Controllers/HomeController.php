@@ -8,7 +8,7 @@ use App\Models\User;
 
 use App\Models\Star; // Assuming you have a Star model for the stars table
 
-use illuminate\SUpport\Facades\Auth; 
+use illuminate\Support\Facades\Auth; 
 
 class HomeController extends Controller
 {

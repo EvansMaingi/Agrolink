@@ -193,5 +193,8 @@
   }
 </script>
 
+<a href="{{ url('farmer/dashboard') }}" class="btn btn-outline-success back-button">Back</a>
+
+
 </body>
 </html>

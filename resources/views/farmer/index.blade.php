@@ -120,7 +120,7 @@
         <h4>Navigation</h4>
         <ul class="nav flex-column">
           <li class="nav-item"><a class="nav-link" href="#">Home</a></li>
-          <li class="nav-item"><a class="nav-link" href="#" onclick="openModal()">Add Category</a></li>
+          <!--<li class="nav-item"><a class="nav-link" href="#" onclick="openModal()">Add Category</a></li> -->
           <li class="nav-item">
             <a href="javascript:void(0);" class="nav-link" onclick="toggleDropdown()">Products ▼</a>
             <ul id="productDropdown" class="list-unstyled ms-3" style="display: none;">

@@ -113,7 +113,9 @@
       <input type="text" name="email" required>
     </div>
       
-      <input class="btn btn-success" type="submit" Valu="add Product">
+      <input class="btn btn-success" type="submit" Value="add Product">
+      <a href="{{ url('farmer/dashboard') }}" class="btn btn-outline-success back-button">Back</a>
+
     </div>
 
   </form>

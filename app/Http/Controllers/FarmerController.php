@@ -104,7 +104,7 @@ class FarmerController extends Controller
 
         $product->save();
 
-        return redirect()->back(); // Redirect back with a success message
+       return redirect('/view_product');  // Redirect back with a success message
     }
 
    public function view_product()

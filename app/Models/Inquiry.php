@@ -13,6 +13,7 @@ class Inquiry extends Model
         'product_id',
         'user_id',
         'message',
+        
     ];
 
     // 🟢 Inquiry belongs to a product

@@ -16,6 +16,17 @@
             <x-input-error :messages="$errors->get('email')" class="mt-2" />
         </div>
 
+        <!-- Role Selection -->
+<div class="mt-4">
+    <x-input-label for="usertype" :value="__('Registering As')" />
+    <select name="usertype" id="usertype" class="block mt-1 w-full border-gray-300 rounded-md shadow-sm">
+        <option value="farmer">Farmer</option>
+        <option value="user">User</option>
+    </select>
+    <x-input-error :messages="$errors->get('usertype')" class="mt-2" />
+</div>
+
+
         <!-- Phone  -->
         <div>
             <x-input-label for="phone" :value="__('Phone')" />

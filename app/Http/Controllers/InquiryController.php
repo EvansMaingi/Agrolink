@@ -19,6 +19,8 @@ class InquiryController extends Controller
         $inquiry->product_id = $productId;
         $inquiry->user_id = Auth::id(); // Assumes user must be logged in
         $inquiry->message = $request->message;
+         // Default status for new inquiries
+
         $inquiry->save();
 
         return back()->with('success', 'Inquiry sent successfully!');

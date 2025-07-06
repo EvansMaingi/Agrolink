@@ -404,7 +404,7 @@
    
     
 
-    <div class="main">
+    <div class="main"  id="farm">
         <div class="farm">
             <img src="images/2.jpg" alt="alt">
             <div class="smallcont">
@@ -420,7 +420,7 @@
 
     </div>
 
-    <div class="about-section">
+    <div class="about-section" id="about-section">
         <div class="about-image">
             <img src="images/1.jpg" alt="Farmers using AgroLink platform">
         </div>
@@ -456,7 +456,7 @@
     <div class="popular">
 
 
-     <div class="about-images">
+     <div class="about-images" id="Discover">
   @foreach($products as $product)
     <div class="image">
         <img src="{{ asset('images/' . $product->image) }}">
@@ -470,7 +470,7 @@
   @endforeach
 </div>
 
-<div class="simple-contact">
+<div class="simple-contact" id="simple-contact">
     <h2>Contact AgroLink</h2>
     <div class="contact-divider"></div>
     
@@ -493,6 +493,8 @@
         <a href="#"><i class="fab fa-linkedin"></i></a>
     </div>
 </div>
+
+
 
    
 

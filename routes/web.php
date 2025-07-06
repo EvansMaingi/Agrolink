@@ -60,7 +60,9 @@ Route::get('update_product/{id}',[FarmerController::class,'update_product']);
 
 Route::get('product_search',[FarmerController::class,'product_search']);
 
-Route::get('product_details/{id}',[HomeController::class,'product_details']);
+Route::get('product_details/{id}',[HomeController::class,'product_details'])->middleware(['auth', 'verified']);
+
+
 
 Route::get('add_star/{id}',[HomeController::class,'add_star'])->middleware(['auth', 'verified']);
 
@@ -84,6 +86,11 @@ Route::middleware(['auth'])->group(function () {
     Route::post('/admin/store', [AdminUserController::class, 'store'])->name('admin.store');
     Route::get('/admin/delete/{id}', [AdminUserController::class, 'delete'])->name('admin.delete');
 });
+
+Route::get('/faqs', function () {
+    return view('home.FAQs');
+})->name('faqs');
+
 
 
 
